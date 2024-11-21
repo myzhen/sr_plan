@@ -59,7 +59,7 @@ void common_walker(const void *obj, void (*callback) (void *));
 #define index_insert_compat(rel,v,n,t,h,u) \
 	index_insert(rel,v,n,t,h,u, BuildIndexInfo(rel))
 #else
-#define index_insert_compat(rel,v,n,t,h,u) index_insert(rel,v,n,t,h,u)
+#define index_insert_compat(rel,v,n,t,h,u) index_insert(NULL /* BUG#M0000428 */,rel,v,n,t,h,u)
 #endif
 
 #ifndef PG_GETARG_JSONB_P
